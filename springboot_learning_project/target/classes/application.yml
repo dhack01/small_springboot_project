@@ -1,0 +1,11 @@
+server:
+  port: 3000
+#^^^how you configure port
+
+#spring:
+#  main:
+#    web-application-type: servlet
+#^^^How you turn off the webserver this would be ideal if you were making an application that didn't require one
+
+
+#This is where you can configure the web server
