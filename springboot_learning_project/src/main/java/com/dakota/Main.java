@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 //Main class for application
 
 //VVV how to specify that it's a spring boot application it condenses a few different annotation reducing syntax clutter
@@ -20,8 +22,11 @@ public class Main {
     //VV Simpler form of RequestMapping GetMapping is made for HTTP get request
 @GetMapping("/greet")// /greet is the path if this server got a request on port 3000 with a path /greet this method would run
     public GreetResponse greet(){
-        return new GreetResponse("wassup");
+        return new GreetResponse("wassup", List.of("Java","php","C++"));
     }
 
-    record GreetResponse(String greet){}
+    record GreetResponse(
+            String greet,
+            List<String> favProgramminglg
+    ){}
 }
