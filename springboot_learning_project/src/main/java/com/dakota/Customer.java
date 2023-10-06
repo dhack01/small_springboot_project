@@ -1,8 +1,34 @@
 package com.dakota;
 
+import jakarta.persistence.*;
 import java.util.Objects;
 
+//This is the data access layer using Spring Data JPA
+//Spring JPA basically writes the sql code for you
+//The annotations generate the following table
+/*
+create table customer (
+        age integer,
+        id integer not null,
+        email varchar(255),
+        name varchar(255),
+        primary key (id)
+    )
+ */
+@Entity
 public class Customer {
+
+
+    @Id
+    @SequenceGenerator(
+            name = "customer_id_sequence",
+            sequenceName = "customer_id_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "customer_id_sequence"
+    )
     private Integer id;
     private String name;
     private String email;
